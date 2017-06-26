@@ -17,12 +17,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <iostream>
+#include "test.h"
+
 using namespace std;
 
 int main()
 {
 	cout << "Graph-Drawer | version 0.0" << endl;
 	cout << "Hello, World!" << endl;
+	test();
 	cout << "Type a char and press Enter: ";
 	cin.get();
 	
