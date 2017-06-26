@@ -4,7 +4,7 @@ Application for drawing graphs (discrete mathematics).
 ## Authors
 - Gerard Wypych (contact@science-artificer.com)
 
-## TO DO:
+## TO DO
 1. Drawing nodes and edges.
 2. Labels for nodes and edges.
 3. Exporting graphs as PNG, SVG and LaTeX with TikZ.
