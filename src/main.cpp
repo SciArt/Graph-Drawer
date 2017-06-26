@@ -15,19 +15,27 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include <iostream>
-#include "test.h"
-
-using namespace std;
+#include <SFML/Graphics.hpp>
 
 int main()
 {
-	cout << "Graph-Drawer | version 0.0" << endl;
-	cout << "Hello, World!" << endl;
-	test();
-	cout << "Type a char and press Enter: ";
-	cin.get();
-	
+	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::CircleShape shape(100.f);
+	shape.setFillColor(sf::Color::Green);
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+
+		window.clear();
+		window.draw(shape);
+		window.display();
+	}
+
 	return 0;
 }
