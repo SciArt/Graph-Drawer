@@ -1,4 +1,4 @@
-# Graph-Drawer (temporary name)
+# Graph-Drawer
 Application for drawing graphs (discrete mathematics).
 
 TO DO:
