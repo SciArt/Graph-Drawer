@@ -8,3 +8,6 @@ TO DO:
 4. Saving graphs in some internal format.
 5. Running some algorithms for created graphs. (?)
 6. (?)
+
+If you want to talk about the project feel free to join me on Discord:
+https://discord.gg/KVAYzE
