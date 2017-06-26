@@ -26,6 +26,6 @@ int main()
 	cout << "Hello, World!" << endl;
 	cout << "Type a char and press Enter: ";
 	cin.get();
-	// I added here some comment... for science. :D
+	
 	return 0;
 }
