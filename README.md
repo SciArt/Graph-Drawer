@@ -8,5 +8,3 @@ TO DO:
 4. Saving graphs in some internal format.
 5. Running some algorithms for created graphs. (?)
 6. (?)
-
-<iframe src="https://discordapp.com/widget?id=328699547733852160&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
