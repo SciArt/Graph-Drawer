@@ -1,19 +1,14 @@
 #include <QApplication>
-#include <QPushButton>
+#include <QProgressBar>
+#include <QSlider>
+#include "mainwindow.h"
 
 int main(int argc, char **argv)
 {
-    QApplication app(argc, argv);
+    QApplication app (argc, argv);
 
-    QPushButton button;
-    button.setText("My text");
-    button.setToolTip("A tooltip");
-
-    QFont font("Courier");
-    button.setFont(font);
-
-    button.show();
+    MainWindow window;
+    window.show();
 
     return app.exec();
 }
-
