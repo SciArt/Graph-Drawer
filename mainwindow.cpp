@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMouseEvent>
 
 #include "QFile"
 #include "QTextStream"
@@ -10,14 +11,42 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->graphicsView->addAction(ui->actionAdd_Node_Context_menu);
+
+    ui->toolBar->addAction(ui->actionShowToolbar);
+    //ui->graphicsView->setMouseTracking(false);
 
     connect(ui->actionExit, SIGNAL(triggered()), QApplication::instance(), SLOT(quit()));
+
+    scene = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene);
+
+    scene->setBackgroundBrush(QColor(120,120,120));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+        scene->setBackgroundBrush(QColor(0,0,120));
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+        scene->setBackgroundBrush(QColor(0,120,0));
+}
+
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+        scene->setBackgroundBrush(QColor(120,0,0));
+}
+
 /*
 void MainWindow::m_save()
 {
@@ -49,3 +78,15 @@ void MainWindow::m_load()
     }
 }
 */
+
+void MainWindow::on_actionShowToolbar_changed()
+{
+    if( ui->actionShowToolbar->isChecked() )
+    {
+        ui->toolBar->show();
+    }
+    else
+    {
+        ui->toolBar->hide();
+    }
+}
