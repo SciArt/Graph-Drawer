@@ -6,6 +6,7 @@
 #include "QFile"
 #include "QTextStream"
 #include "QFileDialog"
+#include "node.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,30 +17,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionExit, SIGNAL(triggered()), QApplication::instance(), SLOT(quit()));
 
     ui->graphicsView->setScene(ui->render_area->getGraphicsScene());
+    ui->render_area->getGraphicsScene()->setSceneRect(ui->graphicsView->geometry());
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-/*
-void MainWindow::mousePressEvent(QMouseEvent *event)
-{
-    if(event->button() == Qt::LeftButton)
-        scene->setBackgroundBrush(QColor(0,0,120));
-}
 
-void MainWindow::mouseReleaseEvent(QMouseEvent *event)
-{
-    if(event->button() == Qt::LeftButton)
-        scene->setBackgroundBrush(QColor(0,120,0));
-}
-
-void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
-{
-    if(event->button() == Qt::LeftButton)
-        scene->setBackgroundBrush(QColor(120,0,0));
-}*/
 
 /*
 void MainWindow::m_save()
@@ -83,4 +69,10 @@ void MainWindow::on_actionShowToolbar_changed()
     {
         ui->toolBar->hide();
     }
+}
+
+void MainWindow::on_actionAdd_Node_triggered()
+{
+    Node *node = new Node;
+    ui->render_area->getGraphicsScene()->addItem(node);
 }

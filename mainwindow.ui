@@ -75,7 +75,7 @@
         <number>0</number>
        </property>
        <item row="0" column="0">
-        <widget class="QGraphicsView" name="graphicsView">
+        <widget class="MyGraphicsView" name="graphicsView">
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
@@ -269,6 +269,11 @@
    <extends>QWidget</extends>
    <header>renderarea.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>mygraphicsview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

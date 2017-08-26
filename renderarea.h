@@ -2,6 +2,10 @@
 #define RENDERAREA_H
 
 #include <QWidget>
+#include <QMouseEvent>
+
+#include "node.h"
+#include <vector>
 
 class QGraphicsScene;
 class QGraphicsView;
@@ -16,11 +20,11 @@ public:
     QGraphicsScene* getGraphicsScene();
 
 protected:
-
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
 private:
-    QGraphicsScene* scene;
-
+    QGraphicsScene *scene;
 signals:
 
 public slots:
