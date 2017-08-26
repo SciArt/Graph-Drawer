@@ -2,8 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QGraphicsScene>
+
 #include <QMouseEvent>
+
+class QGraphicsScene;
+class RenderArea;
 
 namespace Ui {
 class MainWindow;
@@ -18,16 +21,16 @@ public:
     ~MainWindow();
 
 protected:
-    void    mousePressEvent(QMouseEvent *event) override;
+   /* void    mousePressEvent(QMouseEvent *event) override;
     void    mouseReleaseEvent(QMouseEvent *event) override;
-    void    mouseDoubleClickEvent(QMouseEvent *event) override;
+    void    mouseDoubleClickEvent(QMouseEvent *event) override;*/
 
 private slots:
     void on_actionShowToolbar_changed();
 
 private:
     Ui::MainWindow *ui;
-    QGraphicsScene *scene;
+    RenderArea *render_area;
 };
 
 #endif // MAINWINDOW_H

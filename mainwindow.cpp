@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "renderarea.h"
 #include <QMouseEvent>
-
+#include <QGraphicsScene>
 #include "QFile"
 #include "QTextStream"
 #include "QFileDialog"
@@ -11,24 +12,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->graphicsView->addAction(ui->actionAdd_Node_Context_menu);
-
-    ui->toolBar->addAction(ui->actionShowToolbar);
-    //ui->graphicsView->setMouseTracking(false);
-
+    ui->render_area->addAction(ui->actionAdd_Node_Context_menu);
     connect(ui->actionExit, SIGNAL(triggered()), QApplication::instance(), SLOT(quit()));
 
-    scene = new QGraphicsScene(this);
-    ui->graphicsView->setScene(scene);
-
-    scene->setBackgroundBrush(QColor(120,120,120));
+    ui->graphicsView->setScene(ui->render_area->getGraphicsScene());
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+/*
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton)
@@ -45,7 +39,7 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton)
         scene->setBackgroundBrush(QColor(120,0,0));
-}
+}*/
 
 /*
 void MainWindow::m_save()
