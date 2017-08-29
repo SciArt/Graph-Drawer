@@ -8,7 +8,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    renderarea.cpp \
     graph.cpp \
     node.cpp \
     edge.cpp \
@@ -16,7 +15,6 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
-    renderarea.h \
     graph.h \
     node.h \
     edge.h \

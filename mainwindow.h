@@ -25,8 +25,6 @@ protected:
 private slots:
     void on_actionShowToolbar_changed();
 
-    void on_actionAdd_Node_triggered();
-
 private:
     Ui::MainWindow *ui;
     RenderArea *render_area;

@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "renderarea.h"
 #include <QMouseEvent>
 #include <QGraphicsScene>
 #include "QFile"
@@ -13,12 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->render_area->addAction(ui->actionAdd_Node_Context_menu);
+    ui->graphicsView->addAction(ui->actionAdd_Node_Context_menu);
     connect(ui->actionExit, SIGNAL(triggered()), QApplication::instance(), SLOT(quit()));
-
-    ui->graphicsView->setScene(ui->render_area->getGraphicsScene());
-    ui->render_area->getGraphicsScene()->setSceneRect(ui->graphicsView->geometry());
-
 }
 
 MainWindow::~MainWindow()
@@ -69,10 +64,4 @@ void MainWindow::on_actionShowToolbar_changed()
     {
         ui->toolBar->hide();
     }
-}
-
-void MainWindow::on_actionAdd_Node_triggered()
-{
-    Node *node = new Node;
-    ui->render_area->getGraphicsScene()->addItem(node);
 }

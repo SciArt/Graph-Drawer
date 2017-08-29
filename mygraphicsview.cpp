@@ -7,6 +7,9 @@
 MyGraphicsView::MyGraphicsView(QWidget *parent) : QGraphicsView(parent)
 {
     setAlignment(Qt::AlignTop|Qt::AlignLeft);
+    setScene(new QGraphicsScene(this));
+    scene()->setBackgroundBrush(QColor(255,255,255));
+    scene()->setSceneRect(geometry());
 }
 
 MyGraphicsView::~MyGraphicsView()

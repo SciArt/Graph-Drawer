@@ -9,8 +9,9 @@ class MyGraphicsView : public QGraphicsView
 public:
     explicit MyGraphicsView(QWidget *parent = 0);
     ~MyGraphicsView();
+private:
+
 protected:
-    //void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
 };
 
