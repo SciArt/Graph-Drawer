@@ -13,7 +13,12 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     bool Pressed;
+
+    void setPos(qreal x, qreal y);
+
+    QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 protected:
+
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
