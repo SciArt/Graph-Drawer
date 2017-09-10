@@ -2,7 +2,9 @@
 #define NODE_H
 
 #include <QGraphicsItem>
-#include <QMouseEvent>
+//#include <QMouseEvent>
+
+class MyGraphicsView;
 
 class Node : public QGraphicsItem
 {
@@ -17,6 +19,8 @@ public:
     void setPos(qreal x, qreal y);
 
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);
+
+    MyGraphicsView* graphicsView;
 protected:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);

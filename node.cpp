@@ -4,7 +4,12 @@
 
 #include <QGraphicsScene>
 
+#include "mygraphicsview.h"
+
 #include <iostream>
+
+#include <QMouseEvent>
+
 
 Node::Node()
 {
@@ -20,22 +25,26 @@ Node::~Node()
 
 QRectF Node::boundingRect() const
 {
-    return QRectF(0,0,50,50);
+    return QRectF(0,0,25,25);
 }
 
 void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF rec = boundingRect();
-    QBrush brush(Qt::blue);
+    QBrush brush(Qt::black);
 
     if( Pressed )
     {
-        brush.setColor(Qt::red);
+        brush.setColor(Qt::gray);
     }
-    painter->fillRect(rec, brush);
-    painter->drawRect(rec);
+
+    QPen pen(brush,3);
+    //painter->fillRect(rec, brush);
+    painter->setPen(pen);
+    painter->drawEllipse(rec);
 
     //painter->fillRect(scene()->sceneRect(), QBrush(Qt::green));
+
 }
 
 void Node::setPos(qreal x, qreal y)
@@ -45,19 +54,25 @@ void Node::setPos(qreal x, qreal y)
 
 QVariant Node::itemChange(GraphicsItemChange change, const QVariant &value)
 {
-    if (change == ItemPositionChange && scene()) {
-            // value is the new position.
-            QPointF newPos = value.toPointF();
-            QRectF rect = scene()->sceneRect();
-            rect.setBottom(rect.bottom()-boundingRect().height()-1.0);
-            rect.setRight(rect.right()-boundingRect().width()-1.0);
-            if (!rect.contains(newPos)) {
-                // Keep the item inside the scene rect.
-                newPos.setX(qMin(rect.right(), qMax(newPos.x(), rect.left())));
-                newPos.setY(qMin(rect.bottom(), qMax(newPos.y(), rect.top())));
-                return newPos;
-            }
+    if (change == ItemPositionChange && scene())
+    {
+        // value is the new position.
+        QPointF newPos = value.toPointF();
+        QRectF rect = scene()->sceneRect();
+        rect.setBottom(rect.bottom()-boundingRect().height()-1.0);
+        rect.setRight(rect.right()-boundingRect().width()-1.0);
+
+        if (!rect.contains(newPos))
+        {
+            // Keep the item inside the scene rect.
+            newPos.setX(qMin(rect.right(), qMax(newPos.x(), rect.left())));
+            newPos.setY(qMin(rect.bottom(), qMax(newPos.y(), rect.top())));
+            scene()->update();
+            return newPos;
         }
+        scene()->update();
+    }
+
     return QGraphicsItem::itemChange(change, value);
 }
 
@@ -71,6 +86,7 @@ void Node::mousePressEvent(QGraphicsSceneMouseEvent *event)
 void Node::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     Pressed = false;
+    graphicsView->createEdge( this );
     update();
     QGraphicsItem::mouseReleaseEvent(event);
 }

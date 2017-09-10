@@ -65,3 +65,8 @@ void MainWindow::on_actionShowToolbar_changed()
         ui->toolBar->hide();
     }
 }
+
+void MainWindow::on_actionAdd_Edge_triggered()
+{
+    ui->graphicsView->addEdge = !(ui->graphicsView->addEdge);
+}

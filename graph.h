@@ -5,6 +5,8 @@
 #include "node.h"
 #include "edge.h"
 
+class MyGraphicsView;
+
 class Graph
 {
 public:
@@ -15,10 +17,12 @@ public:
     bool deleteNode(Node* node);
     Node* getNode(unsigned int index_of_node);
 
-    Edge* addEdge();
-    void addEdge(Edge* edge);
+    //Edge* addEdge();
+    Edge* addEdge(Node *n1, Node *n2);
     bool deleteEdge(Edge* edge);
     Edge* getEdge(unsigned int index_of_edge);
+
+    MyGraphicsView* graphicsView;
 
 private:
     std::vector<Node*> nodes;

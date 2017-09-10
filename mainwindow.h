@@ -25,6 +25,8 @@ protected:
 private slots:
     void on_actionShowToolbar_changed();
 
+    void on_actionAdd_Edge_triggered();
+
 private:
     Ui::MainWindow *ui;
     RenderArea *render_area;
