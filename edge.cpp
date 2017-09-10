@@ -10,6 +10,7 @@
 Edge::Edge()
 {
     setPos(0,0);
+    setZValue(-1);
 }
 
 Edge::~Edge()
@@ -24,7 +25,7 @@ QRectF Edge::boundingRect() const
 
 void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QBrush brush(Qt::red);
+    QBrush brush(Qt::black);
     QPen pen(brush,3);
     painter->setPen(pen);
 

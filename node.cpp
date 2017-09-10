@@ -31,16 +31,17 @@ QRectF Node::boundingRect() const
 void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF rec = boundingRect();
-    QBrush brush(Qt::black);
+    QBrush brush(QColor(0,127,255));
 
     if( Pressed )
     {
         brush.setColor(Qt::gray);
     }
 
-    QPen pen(brush,3);
+    QPen pen(Qt::black,2);
     //painter->fillRect(rec, brush);
     painter->setPen(pen);
+    painter->setBrush(brush);
     painter->drawEllipse(rec);
 
     //painter->fillRect(scene()->sceneRect(), QBrush(Qt::green));
