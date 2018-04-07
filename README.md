@@ -2,7 +2,7 @@
 Application for drawing graphs (discrete mathematics).
 
 ## Authors
-- Gerard Wypych (contact@science-artificer.com)
+- Gerard Wypych (contact@sci-art.net)
 
 ## TO DO
 1. Drawing nodes and edges.
